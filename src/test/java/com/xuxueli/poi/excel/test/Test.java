@@ -2,10 +2,14 @@ package com.xuxueli.poi.excel.test;
 
 import com.xuxueli.poi.excel.ExcelExportUtil;
 import com.xuxueli.poi.excel.ExcelImportUtil;
+import com.xuxueli.poi.excel.ImportExcelUtil;
 import com.xuxueli.poi.excel.MyExcelImportUtil;
-import com.xuxueli.poi.excel.test.model.HolidayRecord;
-import com.xuxueli.poi.excel.test.model.ShopDTO;
+import com.xuxueli.poi.excel.dto.HolidayRecord;
+import com.xuxueli.poi.excel.dto.ShopDTO;
+import org.apache.poi.ss.usermodel.Workbook;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +21,13 @@ import java.util.List;
  */
 public class Test {
 
-    public static void main(String[] args) {
-//        shopTest();
+    public static void main(String[] args) throws Exception {
+//        importExcel();
+        oldReadExcelTest();
+    }
+
+    private static void importExcel() {
+        //        shopTest();
         /*List<HolidayRecord> holidayDTOList = new ArrayList<HolidayRecord>();
         for (int i = 0; i < 100; i++) {
             HolidayRecord holiday = new HolidayRecord();
@@ -64,4 +73,12 @@ public class Test {
         System.out.println(list);
     }
 
+    public static void  oldReadExcelTest() throws Exception {
+        String path = ImportExcelUtil.class.getClass().getResource("/").getPath();
+        String filePath = path + "节假日记录1.xlsx";
+        InputStream in = new FileInputStream(filePath);//excel文件
+        Workbook book = ImportExcelUtil.getWorkBook(in);
+        List<List<String>> list = ImportExcelUtil.getBankStringListByExcel(book);
+        System.out.println(list);
+    }
 }

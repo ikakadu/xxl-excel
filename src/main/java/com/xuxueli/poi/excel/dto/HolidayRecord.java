@@ -1,9 +1,8 @@
-package com.xuxueli.poi.excel.test.model;
+package com.xuxueli.poi.excel.dto;
 
 import com.xuxueli.poi.excel.annotation.ExcelField;
 import com.xuxueli.poi.excel.annotation.ExcelSheet;
 import lombok.Data;
-import org.apache.poi.hssf.util.HSSFColor;
 
 import java.util.Date;
 
