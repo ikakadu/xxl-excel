@@ -75,7 +75,7 @@ public class MyExcelImportUtil {
                     for (Field field : sheetClass.getDeclaredFields()) {
                         if (field.getAnnotation(ExcelField.class) == null){
                             System.out.println("------------------");
-                            System.out.println(field.getAnnotation(ExcelField.class));
+                            continue;
                         }
                         String value =  field.getAnnotation(ExcelField.class).name();
                         if (key.equals(value)) {
